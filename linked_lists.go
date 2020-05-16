@@ -1,8 +1,9 @@
 package ctcigo
 
-import "fmt"
-
-import "strings"
+import (
+	"fmt"
+	"strings"
+)
 
 type Node struct {
 	Next *Node
