@@ -3,7 +3,9 @@ package chapter2
 /*
 Remove Dups: Write code to remove duplicates from an unsorted linked list.
 */
-
+// N => num of nodes
+// Runtime: O(N)
+// Space: O(N)
 func removeDups(ll *LinkedList) {
 	exists := map[int]bool{}
 
