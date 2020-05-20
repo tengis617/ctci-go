@@ -1,33 +1,29 @@
 package stacks
 
 type Stack interface {
-	Pop() *Node
-	Push(n *Node)
-	Peek() *Node
+	Pop() int
+	Push(n int)
+	Peek() int
 	IsEmpty() bool
 }
 
-type Node struct {
-	Value int
-}
-
 type ListStack struct {
-	nodes []*Node
+	list  []int
 	count int
 }
 
 func NewListStack() Stack {
 	return &ListStack{
-		nodes: make([]*Node, 0),
+		list: make([]int, 0),
 	}
 }
 
-func (s *ListStack) Push(n *Node) {
-	s.nodes = append(s.nodes[:s.count], n)
+func (s *ListStack) Push(n int) {
+	s.list = append(s.list[:s.count], n)
 	s.count++
 }
 
-func (s *ListStack) Pop() *Node {
+func (s *ListStack) Pop() int {
 	n := s.Peek()
 	s.count--
 	return n
@@ -37,9 +33,9 @@ func (s *ListStack) IsEmpty() bool {
 	return s.count == 0
 }
 
-func (s *ListStack) Peek() *Node {
+func (s *ListStack) Peek() int {
 	if s.IsEmpty() {
-		return nil
+		return -1
 	}
-	return s.nodes[s.count-1]
+	return s.list[s.count-1]
 }
