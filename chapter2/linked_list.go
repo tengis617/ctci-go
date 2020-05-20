@@ -16,7 +16,17 @@ func (n *node) SetNext(next *node) {
 }
 
 func (n *node) GetValue() int {
-	return n.Value
+	if n != nil {
+		return n.Value
+	}
+	return 0
+}
+
+func (n *node) GetNext() *node {
+	if n != nil {
+		return n.Next
+	}
+	return nil
 }
 
 type LinkedList struct {
