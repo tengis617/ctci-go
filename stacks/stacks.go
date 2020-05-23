@@ -28,6 +28,9 @@ func (s *ListStack) Push(n int) {
 
 // Pop pops the topmost element on the stack.
 func (s *ListStack) Pop() int {
+	if s.IsEmpty() {
+		return -1
+	}
 	n := s.Peek()
 	s.count--
 	return n
